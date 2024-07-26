@@ -24,6 +24,27 @@ function Auth({setToken}) {
         })
       });
       const result = await response.json();
+      alert(result.message);
+      setToken(result.token);
+    } catch(e) {
+      alert(`Something went wrong. Please check your entry and try again.`);
+    }
+  }
+
+  const logIn = async() => {
+    try {
+      const response = await fetch ('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/login', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+      const result = await response.json();
+      alert(result.message);
       setToken(result.token);
     } catch(e) {
       alert(`Something went wrong. Please check your entry and try again.`);
@@ -79,7 +100,7 @@ function Auth({setToken}) {
             </>
             :
             <>
-              <button>Log In</button>
+              <button onClick={() => {logIn()}}>Log In</button>
 
               <p>Don't have an account?</p>
               <button onClick={() => {setShowRegister(true)}}>Make an Account</button>
