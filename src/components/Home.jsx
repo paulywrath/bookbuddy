@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function Home() {
 
@@ -18,8 +19,11 @@ function Home() {
     getBooks();
   },[])
 
+  const navigate = useNavigate();
+
   const goToBook = (book) => {
     console.log(`clicked ${book.title}`);
+    navigate(`/books/${book.id}`)
   }
 
   return (
