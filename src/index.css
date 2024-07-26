@@ -1,3 +1,14 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav > section {
+  width: 12%;
+  display: flex;
+  justify-content: space-around;
+}
+
 label {
   display: block;
   margin-bottom: 1%;
