@@ -7,7 +7,7 @@ import Account from "./components/Account"
 
 function App() {
 
-  const [token, setToken] = useState(``);
+  const [token, setToken] = useState(null);
   console.log(token);
 
   return (
