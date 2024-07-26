@@ -18,17 +18,19 @@ function Home() {
     getBooks();
   },[])
 
+  const goToBook = (book) => {
+    console.log(`clicked ${book.title}`);
+  }
+
   return (
     <>
       <ul>
         {
           books.map((book) => {
-            return <li key={book.id}><i>{book.title}</i> by {book.author}</li>
+            return <li onClick={() => { goToBook(book)}} key={book.id}><i>{book.title}</i> by {book.author}</li>
           })
         }
       </ul>
-
-      {console.log(books)}
     </>
   )
 }
