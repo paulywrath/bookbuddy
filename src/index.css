@@ -5,12 +5,28 @@ body {
 nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 nav > section {
   width: 25%;
   display: flex;
   justify-content: space-around;
+}
+
+a {
+  color: black;
+}
+
+button {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+}
+
+#log-out {
+  background-color: white;
+  border: white;
+  text-decoration: underline;
 }
 
 main {
