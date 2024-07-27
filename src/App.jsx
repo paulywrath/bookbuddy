@@ -27,7 +27,7 @@ function App() {
             token ? 
               <>
                 <Link to='/account' >My Account</Link>
-                <button onClick={logOut}>Log Out</button>
+                <button id="log-out" onClick={logOut}>Log Out</button>
               </>:
 
               <Link to='/auth' >Log In</Link>
