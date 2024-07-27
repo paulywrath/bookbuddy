@@ -22,20 +22,23 @@ function Home() {
   const navigate = useNavigate();
 
   const goToBook = (book) => {
-    console.log(`clicked ${book.title}`);
     navigate(`/books/${book.id}`)
   }
 
   return (
-    <>
-      <ul>
+    <section id="books-on-homepage" >
         {
           books.map((book) => {
-            return <li onClick={() => { goToBook(book)}} key={book.id}><i>{book.title}</i> by {book.author}</li>
+            return (
+              <section onClick={() => { goToBook(book)}} key={book.id}>
+                <img src={book.coverimage} alt="Book cover"></img>
+                <p><i>{book.title}</i></p>
+                <p>by {book.author}</p>
+              </section>
+            )
           })
         }
-      </ul>
-    </>
+    </section>
   )
 }
 
