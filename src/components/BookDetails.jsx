@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 export default function BookDetails({token}) {
   const {id} = useParams();
@@ -22,7 +22,14 @@ export default function BookDetails({token}) {
 
   const isAvailable = oneBook.available ? `Yes` : `No`;
 
+  const navigate = useNavigate();
+
   async function checkOut () {
+    if (!token) {
+      alert(`Log in to be able to checkout a book.`);
+      navigate('/auth');
+    } 
+    
     try {
       const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/${id}`, {
         method: "PATCH",
