@@ -62,7 +62,7 @@ function Auth({setToken}) {
 
   return (
     <>
-      <form>
+      <form className="account-and-auth">
         {
           showRegister ?
           <>
