@@ -4,26 +4,36 @@ export default function Account({token}) {
   
   const [user, setUser] = useState({});
 
-  useEffect(()=>{
-    async function getUser () {
-      try {
-        const response = await fetch('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me', {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-        })
-        const result = await response.json();
-        setUser(result);
-      } catch(e) {
-        alert(e);
-      }
+  async function getUser () {
+    try {
+      const response = await fetch('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      const result = await response.json();
+      setUser(result);
+    } catch(e) {
+      alert(e);
     }
-    getUser();
-  },[])
+  }
+
+  useEffect(()=>{ getUser();},[])
   
   async function returnBook (book) {
-    console.log(`clicked ${book.title}`);
+    try {
+      await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/reservations/${book.id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      getUser();
+    } catch(e) {
+      alert(e);
+    }
   }
 
   return (
@@ -36,8 +46,6 @@ export default function Account({token}) {
       </ul>
 
       <h3>Books checked out</h3>
-
-      {console.log(`user:`, user)}
 
       {
         user.books ?
