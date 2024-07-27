@@ -37,7 +37,7 @@ export default function Account({token}) {
   }
 
   return (
-    <>
+    <section className="account-and-auth">
       <h2 id="my-account">My Account</h2>
       
       <ul>
@@ -65,6 +65,6 @@ export default function Account({token}) {
           </ul>:
         null
       }
-    </>
+    </section>
   )
 }

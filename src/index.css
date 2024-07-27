@@ -26,10 +26,6 @@ img {
   height: 40vh;
 }
 
-#one-book-details {
-  margin: 0% 20%;
-}
-
 #books-on-homepage {
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +39,10 @@ img {
   box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5); 
 } 
 
-#my-account {
-  text-align: center;
+#one-book-details {
+  margin: 0% 20%;
+}
+
+.account-and-auth {
+  margin-left: 40%;
 }
