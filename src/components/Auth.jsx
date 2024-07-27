@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function Auth({setToken}) {
 
@@ -9,6 +10,8 @@ function Auth({setToken}) {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   
+  const navigate = useNavigate();
+
   const register = async() => {
     try {
       const response = await fetch ('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/register', {
@@ -26,6 +29,9 @@ function Auth({setToken}) {
       const result = await response.json();
       alert(result.message);
       setToken(result.token);
+      if (result.message === `Registration successful`) {
+        navigate('/');
+      }
     } catch(e) {
       alert(`Something went wrong. Please check your entry and try again.`);
     }
@@ -46,6 +52,9 @@ function Auth({setToken}) {
       const result = await response.json();
       alert(result.message);
       setToken(result.token);
+      if (result.message === `Login successful!`) {
+        navigate('/');
+      }
     } catch(e) {
       alert(`Something went wrong. Please check your entry and try again.`);
     }
