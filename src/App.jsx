@@ -7,7 +7,7 @@ import Account from "./components/Account"
 
 function App() {
 
-  const [token, setToken] = useState(``);
+  const [token, setToken] = useState(null);
   console.log(token);
 
   return (
@@ -28,7 +28,7 @@ function App() {
       <Routes>
         <Route path ='/' element={<Home />} />
         <Route path ='/auth' element={<Auth setToken={setToken}/>} />
-        <Route path ='/books/:id' element={<BookDetails />} />
+        <Route path ='/books/:id' element={<BookDetails token={token}/>} />
         <Route path ='/account' element={<Account />} />
       </Routes>
     </>
