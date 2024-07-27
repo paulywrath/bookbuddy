@@ -19,7 +19,11 @@ function App() {
           
           {
             token ? 
-              <Link to='/account' >My Account</Link>:
+              <>
+                <Link to='/account' >My Account</Link>
+                <Link onClick={() => {setToken(null)}}>Log Out</Link>
+              </>:
+
               <Link to='/auth' >Log In</Link>
           }
         </section>

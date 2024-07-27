@@ -4,7 +4,7 @@ nav {
 }
 
 nav > section {
-  width: 12%;
+  width: 25%;
   display: flex;
   justify-content: space-around;
 }
