@@ -35,12 +35,14 @@ function App() {
         </section>
       </nav>
       
-      <Routes>
-        <Route path ='/' element={<Home />} />
-        <Route path ='/auth' element={<Auth setToken={setToken}/>} />
-        <Route path ='/books/:id' element={<BookDetails token={token}/>} />
-        <Route path ='/account' element={<Account token={token}/>} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path ='/' element={<Home />} />
+          <Route path ='/auth' element={<Auth setToken={setToken}/>} />
+          <Route path ='/books/:id' element={<BookDetails token={token}/>} />
+          <Route path ='/account' element={<Account token={token}/>} />
+        </Routes>
+      </main>
     </>
   )
 }
