@@ -8,12 +8,11 @@ import Account from "./components/Account"
 function App() {
 
   const [token, setToken] = useState(null);
-  console.log(token);
 
   return (
     <>
       <nav>
-        <h1>Your Bookbuddy</h1>
+        <h1>My Bookbuddy</h1>
         <section>
           <Link to='/' >Book List</Link>
           
@@ -33,7 +32,7 @@ function App() {
         <Route path ='/' element={<Home />} />
         <Route path ='/auth' element={<Auth setToken={setToken}/>} />
         <Route path ='/books/:id' element={<BookDetails token={token}/>} />
-        <Route path ='/account' element={<Account />} />
+        <Route path ='/account' element={<Account token={token}/>} />
       </Routes>
     </>
   )
