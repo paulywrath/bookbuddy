@@ -49,7 +49,7 @@ export default function BookDetails({token}) {
   }
 
   return (
-    <>
+    <section id="one-book-details">
       <img src={oneBook.coverimage} alt="Book cover"></img>
       <p><i>{oneBook.title}</i></p>
       <p>by {oneBook.author}</p>
@@ -58,6 +58,6 @@ export default function BookDetails({token}) {
       {
         oneBook.available && <button onClick={() => {checkOut()}}>Checkout</button>
       }  
-    </>
+    </section>
   )
 }
